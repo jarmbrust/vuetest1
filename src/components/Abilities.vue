@@ -1,7 +1,7 @@
 <template>
   <div class="row container">
-    <div >
-       <div class="ability col-md-4 col-md-offset-1"> 
+    <div  class="ability col-md-4 col-md-offset-1">
+       <div> 
          <table class="table table-hover">
            <thead>
               <tr>
@@ -11,26 +11,19 @@
            </thead>
            <tbody>
              <tr v-for="(ability, index) in abilities">
-               <td>{{ index }}: </td> <td>{{ ability }}</td> <td v-if="adjustAbility">
+               <td>{{ index }}: </td> <td class="score">{{ ability }}</td> <td v-if="adjustAbility">
                  <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">Adjust</button>
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">Adjust <span class="caret"></span></button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <option v-for="(cost, index) in abilityCost" class="dropdown-item" >{{ cost }}</option>
+                      <option v-for="(cost, value) in abilityCost" class="dropdown-item" @click="ability = selected(value, index)">{{ value }} -- (Cost: {{ cost }})</option>
                   </div>
-                  </div>
+                </div>
                </td>
              </tr>
            </tbody>
          </table>
-         <div class="dropdown">
-  <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown trigger
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dLabel">
-    ...
-  </ul>
-</div>
+         <div>Points: {{ this.points }} </div>
+        </div>
        </div>
        <div class="col-md-3"></div>
        <div class="col-md-3"></div>
@@ -65,6 +58,16 @@
       }
     },
     methods: {
+      selected (value, index) {
+        this.adjustPoints(value, index)
+        this.abilities[index] = value
+      },
+      adjustPoints (value, index) {
+        let currentValue = this.abilityCost[this.abilities[index]]
+        let valueAdj = this.abilityCost[value]
+        let pointCost = currentValue - valueAdj
+        this.points += pointCost
+      }
     }
   }
 </script>
@@ -72,5 +75,12 @@
 <style scoped>
     .container {
         border: 1px solid black;
+    }
+    .dropdown-item {
+      padding-left: 10px;
+      cursor: pointer;
+    }
+    .dropdown-item:hover {
+      background-color: #ccc;
     }
 </style>
