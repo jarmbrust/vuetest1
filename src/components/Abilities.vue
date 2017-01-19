@@ -22,16 +22,22 @@
              </tr>
            </tbody>
          </table>
-         <div>Points: {{ this.points }} </div>
+         <div>Points: <span class="total-points">{{ this.points }} </span>
+          <button class="btn btn-primary reset" type="button" @click="resetStats">Reset Stats</button>
+         </div>
         </div>
        </div>
-       <div class="col-md-3"></div>
+       <div class="col-md-3">
+         <app-race @selectedRace="selectedRace"></app-race>
+       </div>
        <div class="col-md-3"></div>
      </div>
   </div>
 </template>
 
 <script>
+  import Race from './Race.vue'
+
   export default {
     data () {
       return {
@@ -67,7 +73,19 @@
         let valueAdj = this.abilityCost[value]
         let pointCost = currentValue - valueAdj
         this.points += pointCost
+      },
+      resetStats () {
+        for (var key in this.abilities) {
+          this.abilities[key] = 8
+        }
+        this.points = 27
+      },
+      selectedRace (test) {
+        console.log('test' + test)
       }
+    },
+    components: {
+      appRace: Race
     }
   }
 </script>
@@ -82,5 +100,11 @@
     }
     .dropdown-item:hover {
       background-color: #ccc;
+    }
+    .total-points {
+      padding: 10px;
+    }
+    .reset {
+      margin: 2px;
     }
 </style>
