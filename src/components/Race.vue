@@ -4,6 +4,12 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <option v-for="race in races" class="dropdown-item" @click="selectRace(race)"> {{ race }}</option>
     </div>
+    <div v-if="selectedRace === 'Elf' || selectedRace === 'Dwarf' || selectedRace === 'Gnome' || selectedRace === 'Halfling'">
+      <button class="btn btn-secondary dropdown-toggle sub-race" type="button" id="dropdownMenuButtonSub" data-toggle="dropdown">SubRace <span class="caret"></span></button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <option v-for="subRace in subRaces[selectedRace]" class="dropdown-item" @click="selectRace(subRace)"> {{ subRace }}</option>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -12,14 +18,21 @@
     data () {
       return {
         races: [
-          'human', 'elf', 'dwarf', 'gnome', 'halfling', 'tiefling', 'dragonborn'
-        ]
-    //    selectRace: 'human'
+          'Human', 'Elf', 'Dwarf', 'Gnome', 'Halfling', 'Half-Orc', 'Half-Elf', 'Tiefling', 'Dragonborn'
+        ],
+        subRaces: {
+          'Elf': ['High Elf', 'Wood Elf', 'Drow Elf'],
+          'Dwarf': ['Hill Dwarf', 'Mountain Dwarf'],
+          'Gnome': ['Rock Gnome', 'Forest Gnome'],
+          'Halfling': ['Lightfoot', 'Stout']
+        },
+        selectedRace: ''
       }
     },
     methods: {
       selectRace (race) {
         console.log(race + ' in component')
+        this.selectedRace = race
         this.$emit('selectedRace', race)
       }
     }
