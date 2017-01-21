@@ -29,6 +29,7 @@
        </div>
        <div class="col-md-3">
          <app-race @selectedRace="selectedRace"></app-race>
+         <div class="selected-race"> {{ race }}</div>
        </div>
        <div class="col-md-3"></div>
      </div>
@@ -60,7 +61,8 @@
           14: 7,
           15: 9
         },
-        adjustAbility: true
+        adjustAbility: true,
+        race: ''
       }
     },
     methods: {
@@ -80,8 +82,9 @@
         }
         this.points = 27
       },
-      selectedRace (test) {
-        console.log('test' + test)
+      selectedRace (race) {
+        console.log('test ' + race)
+        this.race = race
       }
     },
     components: {
@@ -92,7 +95,7 @@
 
 <style scoped>
     .container {
-        border: 1px solid black;
+        /*border: 1px solid black;*/
     }
     .dropdown-item {
       padding-left: 10px;
@@ -106,5 +109,8 @@
     }
     .reset {
       margin: 2px;
+    }
+    .selected-race {
+      padding: 10px;
     }
 </style>
