@@ -4,7 +4,7 @@
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <option v-for="race in races" class="dropdown-item" @click="selectRace(race)"> {{ race }}</option>
     </div>
-    <div v-if="selectedRace === 'Elf' || selectedRace === 'Dwarf' || selectedRace === 'Gnome' || selectedRace === 'Halfling'">
+    <div v-if="selectedRace === 'Elf' || selectedRace === 'Dwarf' || selectedRace === 'Gnome' || selectedRace === 'Halfling' || selectedRace === 'Human' || selectedRace === 'Tiefling'">
       <button class="btn btn-secondary dropdown-toggle sub-race" type="button" id="dropdownMenuButtonSub" data-toggle="dropdown">SubRace <span class="caret"></span></button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <option v-for="subRace in subRaces[selectedRace]" class="dropdown-item" @click="selectRace(subRace)"> {{ subRace }}</option>
@@ -18,13 +18,15 @@
     data () {
       return {
         races: [
-          'Human', 'Elf', 'Dwarf', 'Gnome', 'Halfling', 'Half-Orc', 'Half-Elf', 'Tiefling', 'Dragonborn'
+          'Human', 'Elf', 'Dwarf', 'Gnome', 'Halfling', 'Half-Orc', 'Half-Elf', 'Tiefling'
         ],
         subRaces: {
+          'Human': ['Nokoyan Human', 'Sarruth Human'],
           'Elf': ['High Elf', 'Wood Elf', 'Drow Elf'],
           'Dwarf': ['Hill Dwarf', 'Mountain Dwarf'],
           'Gnome': ['Rock Gnome', 'Forest Gnome'],
-          'Halfling': ['Lightfoot', 'Stout']
+          'Halfling': ['Halfling, Lightfoot', 'Halfling, Stout'],
+          'Tiefling': ['Abyssal Tiefling', 'Infernal Tiefling']
         },
         selectedRace: ''
       }
