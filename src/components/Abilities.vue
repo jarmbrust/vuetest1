@@ -91,9 +91,6 @@
           this.abilities[key] = 8
         }
         this.points = 27
-        // for (var stat in this.raceBonus) {
-        //   this.raceBonus[stat] = 0
-        // }
       },
       selectedRace (race, bonus) {
         console.log('test ' + race + ' ' + bonus)
@@ -101,7 +98,6 @@
         this.race = race
 
         for (var stat in this.raceBonus) {
-          console.log(stat, bonus[stat])
           this.raceBonus[stat] = bonus[stat]
         }
       }

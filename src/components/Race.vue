@@ -18,7 +18,7 @@
     data () {
       return {
         races: [
-          'Human', 'Elf', 'Dwarf', 'Gnome', 'Halfling', 'Half-Orc', 'Half-Elf', 'Tiefling'
+          'Human', 'Elf', 'Dwarf', 'Gnome', 'Halfling', 'Half-Orc', 'Half-Elf', 'Tiefling', 'Dragonborn'
         ],
         subRaces: {
           'Human': ['Nokoyan Human', 'Sarruth Human'],
@@ -44,7 +44,8 @@
           'Abyssal Tiefling': {'Str': 0, 'Dex': 0, 'Con': 1, 'Int': 0, 'Wis': 0, 'Chr': 2},
           'Infernal Tiefling': {'Str': 0, 'Dex': 0, 'Con': 0, 'Int': 1, 'Wis': 0, 'Chr': 2},
           'Half-Orc': {'Str': 2, 'Dex': 0, 'Con': 1, 'Int': 0, 'Wis': 0, 'Chr': 0},
-          'Half-Elf': {'Str': 0, 'Dex': 0, 'Con': 0, 'Int': 0, 'Wis': 0, 'Chr': 2}
+          'Half-Elf': {'Str': 0, 'Dex': 0, 'Con': 0, 'Int': 0, 'Wis': 0, 'Chr': 2},
+          'Dragonborn': {'Str': 2, 'Dex': 0, 'Con': 0, 'Int': 0, 'Wis': 0, 'Chr': 1}
         },
         selectedRace: 'Default'
       }
