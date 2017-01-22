@@ -7,11 +7,13 @@
               <tr>
                 <th>Ability</th>
                 <th>Score</th>
+                <th>Race<br>Bonus</th>
+                <th>Total</th>
               </tr>
            </thead>
            <tbody>
              <tr v-for="(ability, index) in abilities">
-               <td>{{ index }}: </td> <td class="score">{{ ability }}</td> <td v-if="adjustAbility">
+               <td>{{ index }}: </td> <td class="score">{{ ability }}</td> <td class="race-bonus">{{ raceBonus[index] }}</td> <td class="total-score">{{ Number(ability) + Number(raceBonus[index]) }}</td><td v-if="adjustAbility">
                  <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">Adjust <span class="caret"></span></button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -50,6 +52,14 @@
           'Wis': 8,
           'Chr': 8
         },
+        raceBonus: {
+          'Str': 0,
+          'Dex': 0,
+          'Con': 0,
+          'Int': 0,
+          'Wis': 0,
+          'Chr': 0
+        },
         points: 27,
         abilityCost: {
           8: 0,
@@ -81,10 +91,19 @@
           this.abilities[key] = 8
         }
         this.points = 27
+        // for (var stat in this.raceBonus) {
+        //   this.raceBonus[stat] = 0
+        // }
       },
-      selectedRace (race) {
-        console.log('test ' + race)
+      selectedRace (race, bonus) {
+        console.log('test ' + race + ' ' + bonus)
+        console.log(bonus)
         this.race = race
+
+        for (var stat in this.raceBonus) {
+          console.log(stat, bonus[stat])
+          this.raceBonus[stat] = bonus[stat]
+        }
       }
     },
     components: {
@@ -106,11 +125,15 @@
     }
     .total-points {
       padding: 10px;
+      font-size: 18px;
     }
     .reset {
       margin: 2px;
     }
     .selected-race {
       padding: 10px;
+    }
+    .total-score {
+      font-weight: bold;
     }
 </style>
