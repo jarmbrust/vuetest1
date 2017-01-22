@@ -25,17 +25,36 @@
           'Elf': ['High Elf', 'Wood Elf', 'Drow Elf'],
           'Dwarf': ['Hill Dwarf', 'Mountain Dwarf'],
           'Gnome': ['Rock Gnome', 'Forest Gnome'],
-          'Halfling': ['Halfling, Lightfoot', 'Halfling, Stout'],
+          'Halfling': ['Lightfoot Halfling', 'Stout Halfling'],
           'Tiefling': ['Abyssal Tiefling', 'Infernal Tiefling']
         },
-        selectedRace: ''
+        raceBonus: {
+          'Default': {'Str': 0, 'Dex': 0, 'Con': 0, 'Int': 0, 'Wis': 0, 'Chr': 0},
+          'Nokoyan Human': {'Str': 1, 'Dex': 1, 'Con': 1, 'Int': 1, 'Wis': 1, 'Chr': 1},
+          'Sarruth Human': {'Str': 1, 'Dex': 1, 'Con': 1, 'Int': 1, 'Wis': 1, 'Chr': 1},
+          'High Elf': {'Str': 0, 'Dex': 2, 'Con': 0, 'Int': 1, 'Wis': 0, 'Chr': 0},
+          'Wood Elf': {'Str': 0, 'Dex': 2, 'Con': 0, 'Int': 0, 'Wis': 1, 'Chr': 0},
+          'Drow Elf': {'Str': 0, 'Dex': 2, 'Con': 0, 'Int': 0, 'Wis': 0, 'Chr': 1},
+          'Hill Dwarf': {'Str': 0, 'Dex': 0, 'Con': 2, 'Int': 0, 'Wis': 1, 'Chr': 0},
+          'Mountain Dwarf': {'Str': 2, 'Dex': 0, 'Con': 2, 'Int': 0, 'Wis': 0, 'Chr': 0},
+          'Rock Gnome': {'Str': 0, 'Dex': 0, 'Con': 1, 'Int': 2, 'Wis': 0, 'Chr': 0},
+          'Forest Gnome': {'Str': 0, 'Dex': 1, 'Con': 0, 'Int': 2, 'Wis': 0, 'Chr': 0},
+          'Lightfoot Halfling': {'Str': 0, 'Dex': 2, 'Con': 0, 'Int': 0, 'Wis': 0, 'Chr': 1},
+          'Stout Halfling': {'Str': 0, 'Dex': 2, 'Con': 1, 'Int': 0, 'Wis': 0, 'Chr': 0},
+          'Abyssal Tiefling': {'Str': 0, 'Dex': 0, 'Con': 1, 'Int': 0, 'Wis': 0, 'Chr': 2},
+          'Infernal Tiefling': {'Str': 0, 'Dex': 0, 'Con': 0, 'Int': 1, 'Wis': 0, 'Chr': 2},
+          'Half-Orc': {'Str': 2, 'Dex': 0, 'Con': 1, 'Int': 0, 'Wis': 0, 'Chr': 0},
+          'Half-Elf': {'Str': 0, 'Dex': 0, 'Con': 0, 'Int': 0, 'Wis': 0, 'Chr': 2}
+        },
+        selectedRace: 'Default'
       }
     },
     methods: {
       selectRace (race) {
         console.log(race + ' in component')
         this.selectedRace = race
-        this.$emit('selectedRace', race)
+        let bonusArray = this.raceBonus[this.selectedRace] ? this.raceBonus[this.selectedRace] : this.raceBonus['Default']
+        this.$emit('selectedRace', race, bonusArray)
       }
     }
   }
