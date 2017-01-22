@@ -52,7 +52,6 @@
     },
     methods: {
       selectRace (race) {
-        console.log(race + ' in component')
         this.selectedRace = race
         let bonusArray = this.raceBonus[this.selectedRace] ? this.raceBonus[this.selectedRace] : this.raceBonus['Default']
         this.$emit('selectedRace', race, bonusArray)

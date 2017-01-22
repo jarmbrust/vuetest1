@@ -6,14 +6,14 @@
            <thead>
               <tr>
                 <th>Ability</th>
+                <th>Total</th>
                 <th>Score</th>
                 <th>Race<br>Bonus</th>
-                <th>Total</th>
               </tr>
            </thead>
            <tbody>
              <tr v-for="(ability, index) in abilities">
-               <td>{{ index }}: </td> <td class="score">{{ ability }}</td> <td class="race-bonus">{{ raceBonus[index] }}</td> <td class="total-score">{{ Number(ability) + Number(raceBonus[index]) }}</td><td v-if="adjustAbility">
+               <td>{{ index }}: </td> <td class="total-score">{{ Number(ability) + Number(raceBonus[index]) }}</td> <td class="score">{{ ability }}</td> <td class="race-bonus">{{ raceBonus[index] }}</td> <td v-if="adjustAbility">
                  <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">Adjust <span class="caret"></span></button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -93,10 +93,7 @@
         this.points = 27
       },
       selectedRace (race, bonus) {
-        console.log('test ' + race + ' ' + bonus)
-        console.log(bonus)
         this.race = race
-
         for (var stat in this.raceBonus) {
           this.raceBonus[stat] = bonus[stat]
         }
@@ -131,5 +128,6 @@
     }
     .total-score {
       font-weight: bold;
+      font-size: 18px;
     }
 </style>
