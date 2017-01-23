@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dropdown btn-group">
     <button class="btn btn-secondary dropdown-toggle race" type="button" id="dropdownMenuButton" data-toggle="dropdown">Race <span class="caret"></span></button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <option v-for="race in races" class="dropdown-item" @click="selectRace(race)"> {{ race }}</option>
@@ -68,7 +68,8 @@
     .dropdown-item:hover {
       background-color: #ccc;
     }
-    .race {
-      margin: 2px;
+    .race,
+    .sub-race {
+      margin: 10px;
     }
 </style>
