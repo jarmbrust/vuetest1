@@ -1,6 +1,6 @@
 <template>
   <div class="row container">
-    <div  class="ability col-md-4 col-md-offset-1">
+    <div  class="ability col-md-6 col-md-offset-1">
        <div> 
          <table class="table table-hover">
            <thead>
@@ -13,27 +13,30 @@
            </thead>
            <tbody>
              <tr v-for="(ability, index) in abilities">
-               <td>{{ index }}: </td> <td class="total-score">{{ Number(ability) + Number(raceBonus[index]) }}</td> <td class="score">{{ ability }}</td> <td class="race-bonus">{{ raceBonus[index] }}</td> <td v-if="adjustAbility">
+               <td class="stat-name">{{ index }}: </td> <td class="total-score">{{ Number(ability) + Number(raceBonus[index]) }}</td> <td class="score">{{ ability }}</td> <td class="race-bonus">{{ raceBonus[index] }}</td> <td v-if="adjustAbility">
                  <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">Adjust <span class="caret"></span></button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <option v-for="(cost, value) in abilityCost" class="dropdown-item" @click="ability = selected(value, index)">{{ value }} -- (Cost: {{ cost }})</option>
+                      <option v-for="(cost, value) in abilityCost" class="dropdown-item" @click="ability = selected(value, index)">{{ value }} : (Cost: {{ cost }})</option>
                   </div>
                 </div>
                </td>
              </tr>
            </tbody>
          </table>
-         <div>Points: <span class="total-points">{{ this.points }} </span>
-          <button class="btn btn-primary reset" type="button" @click="resetStats">Reset Stats</button>
+         <div>
+         <div class="points-text">Points: <span class="total-points">{{ this.points }} </span>
+           <button class="btn btn-primary reset" type="button" @click="resetStats">Reset Stats</button>
          </div>
-        </div>
+         <app-race @selectedRace="selectedRace"></app-race> <span class="selected-race"> {{ race }}</span>
+         </div>
        </div>
-       <div class="col-md-3">
-         <app-race @selectedRace="selectedRace"></app-race>
-         <div class="selected-race"> {{ race }}</div>
        </div>
-       <div class="col-md-3"></div>
+       <div class="col-md-4">
+         <!--<app-race @selectedRace="selectedRace"></app-race>
+         <div class="selected-race"> {{ race }}</div>-->
+       </div>
+       <div class="col-md-1"></div>
      </div>
   </div>
 </template>
@@ -106,9 +109,6 @@
 </script>
 
 <style scoped>
-    .container {
-        /*border: 1px solid black;*/
-    }
     .dropdown-item {
       padding-left: 10px;
       cursor: pointer;
@@ -116,18 +116,29 @@
     .dropdown-item:hover {
       background-color: #ccc;
     }
-    .total-points {
+    .points-text {
       padding: 10px;
       font-size: 18px;
+      float: left;
     }
     .reset {
       margin: 2px;
     }
     .selected-race {
       padding: 10px;
-    }
-    .total-score {
-      font-weight: bold;
+      margin: 10px;
       font-size: 18px;
+    }
+    .total-score,
+    .total-points  {
+      font-weight: bold;
+      font-size: 20px;
+      padding: 10px;
+      color: darkblue;
+    }
+    .stat-name {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      font-weight: bold;
     }
 </style>
