@@ -18,6 +18,6 @@ export default {
 
 <style>
   body {
-    background-color: #EEE;
+    background-color: #FFE;
   }
 </style>
