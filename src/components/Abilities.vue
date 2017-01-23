@@ -120,6 +120,7 @@
       padding: 10px;
       font-size: 18px;
       float: left;
+      color: #EEE;
     }
     .reset {
       margin: 2px;
@@ -128,17 +129,33 @@
       padding: 10px;
       margin: 10px;
       font-size: 18px;
+      color: #EEE;
     }
     .total-score,
     .total-points  {
       font-weight: bold;
       font-size: 20px;
       padding: 10px;
-      color: darkblue;
+      color: #EEE;
     }
     .stat-name {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 20px;
+      font-weight: bold;
+      color: #EEE;
+    }
+    .score,
+    .race-bonus,
+    .table th {
+      color: #EEE;
+    }
+    .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+      background-color: #333;
+    }
+    .dropdown-menu {
+      /*background-color: #EEE;*/
+    }
+    .bold {
       font-weight: bold;
     }
 </style>
