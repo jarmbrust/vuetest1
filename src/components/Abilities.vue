@@ -1,7 +1,7 @@
 <template>
   <div class="row container">
     <div  class="ability col-md-6 col-md-offset-1">
-       <div> 
+       <div>
          <table class="table table-hover">
            <thead>
               <tr>
@@ -33,8 +33,7 @@
        </div>
        </div>
        <div class="col-md-4">
-         <!--<app-race @selectedRace="selectedRace"></app-race>
-         <div class="selected-race"> {{ race }}</div>-->
+         <app-race-description></app-race-description>
        </div>
        <div class="col-md-1"></div>
      </div>
@@ -43,6 +42,7 @@
 
 <script>
   import Race from './Race.vue'
+  import RaceDescription from './RaceDescription.vue'
 
   export default {
     data () {
@@ -103,7 +103,8 @@
       }
     },
     components: {
-      appRace: Race
+      appRace: Race,
+      appRaceDescription: RaceDescription
     }
   }
 </script>
