@@ -33,7 +33,7 @@
        </div>
        </div>
        <div class="col-md-4">
-         <app-race-description></app-race-description>
+         <app-race-description :selectedRace="selectedRace"></app-race-description>
        </div>
        <div class="col-md-1"></div>
      </div>

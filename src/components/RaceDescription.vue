@@ -1,7 +1,7 @@
 <template>
   <div class="race-description-container">
     <div>
-      {{ race }}
+      {{ test }}
     </div>
   </div>
 </template>
@@ -28,20 +28,29 @@
           'Half-Orc': {'Uncommon': 'TBD'},
           'Half-Elf': {'Rare': 'TBD'},
           'Dragonborn': {'Rare': 'TBD'}
-        }
+        },
+        test: this.getRace
       }
     },
-    // methods: {
-    //   // selectedDescription (race) {
-    //   //   console.log('> ', race)
-    //   //   return this.descriptions
-    //   // },
-    //   // selectedRace (race) {
-    //   // //  this.race = race
-    //   //   console.log('>> ', race)
-    //   // }
-    // },
-    props: ['race']
+    methods: {
+      selectedDescription (race) {
+        console.log('> ', race)
+        return this.descriptions
+      }
+      // ,
+      // selectedRace (race) {
+      // //  this.race = race
+      //   console.log('>> ', race)
+      // }
+    },
+    props: ['selectedRace'],
+    computed: {
+      getRace () {
+        return {
+          test: this.selectedRace
+        }
+      }
+    }
   }
 </script>
 
