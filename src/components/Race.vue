@@ -21,7 +21,7 @@
           'Human', 'Elf', 'Dwarf', 'Gnome', 'Halfling', 'Half-Orc', 'Half-Elf', 'Tiefling', 'Dragonborn'
         ],
         subRaces: {
-          'Human': ['Nokoyan Human', 'Sarruth Human'],
+          'Human': ['Nokoyan Human', 'Sarruthan Human'],
           'Elf': ['High Elf', 'Wood Elf', 'Drow Elf'],
           'Dwarf': ['Hill Dwarf', 'Mountain Dwarf'],
           'Gnome': ['Rock Gnome', 'Forest Gnome'],
@@ -31,7 +31,7 @@
         raceBonus: {
           'Default': {'Str': 0, 'Dex': 0, 'Con': 0, 'Int': 0, 'Wis': 0, 'Chr': 0},
           'Nokoyan Human': {'Str': 1, 'Dex': 1, 'Con': 1, 'Int': 1, 'Wis': 1, 'Chr': 1},
-          'Sarruth Human': {'Str': 1, 'Dex': 1, 'Con': 1, 'Int': 1, 'Wis': 1, 'Chr': 1},
+          'Sarruthan Human': {'Str': 1, 'Dex': 1, 'Con': 1, 'Int': 1, 'Wis': 1, 'Chr': 1},
           'High Elf': {'Str': 0, 'Dex': 2, 'Con': 0, 'Int': 1, 'Wis': 0, 'Chr': 0},
           'Wood Elf': {'Str': 0, 'Dex': 2, 'Con': 0, 'Int': 0, 'Wis': 1, 'Chr': 0},
           'Drow Elf': {'Str': 0, 'Dex': 2, 'Con': 0, 'Int': 0, 'Wis': 0, 'Chr': 1},
@@ -54,6 +54,7 @@
       selectRace (race) {
         this.selectedRace = race
         let bonusArray = this.raceBonus[this.selectedRace] ? this.raceBonus[this.selectedRace] : this.raceBonus['Default']
+        race = this.raceBonus[this.selectedRace] ? race : 'Select "sub-race"'
         this.$emit('selectedRace', race, bonusArray)
       }
     }
