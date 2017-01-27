@@ -56,6 +56,7 @@
         let bonusArray = this.raceBonus[this.selectedRace] ? this.raceBonus[this.selectedRace] : this.raceBonus['Default']
         race = this.raceBonus[this.selectedRace] ? race : 'Select "sub-race"'
         this.$emit('selectedRace', race, bonusArray)
+        this.$store.state.selectedRace = race
       }
     }
   }

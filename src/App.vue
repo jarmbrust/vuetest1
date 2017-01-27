@@ -5,7 +5,6 @@
 </template>
 
 <script>
-// import Hello from './components/Hello'
 import Abilities from './components/Abilities.vue'
 
 export default {

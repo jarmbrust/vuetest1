@@ -1,7 +1,9 @@
 <template>
   <div class="race-description-container">
     <div>
-      {{ test }}
+      {{ selectedRace }}
+      Frequency: {{ descriptions['Freq']}}
+      {{ descriptions[selected] }}
     </div>
   </div>
 </template>
@@ -11,44 +13,34 @@
     data () {
       return {
         descriptions: {
-          'Default': {'Description': ''},
-          'Nokoyan Human': {'Common': 'These humans have fair skin and a variety of hair colors.  Their ancestors came from across the eastern sea'},
-          'Sarruthan Human': {'Uncommon': 'These humans have medium to dark skin tones and usually straight dark hair. Their ancestors came from southern parts of the contenent.'},
-          'High Elf': {'Uncommon': 'TBD'},
-          'Wood Elf': {'Rare': 'TBD'},
-          'Drow Elf': {'Very Rare': 'TBD'},
-          'Hill Dwarf': {'Common': 'TBD'},
-          'Mountain Dwarf': {'Rare': 'TBD'},
-          'Rock Gnome': {'Common': 'TBD'},
-          'Forest Gnome': {'Very Rare': 'TBD'},
-          'Lightfoot Halfling': {'Uncommon': 'TBD'},
-          'Stout Halfling': {'Rare': 'TBD'},
-          'Abyssal Tiefling': {'Uncommon': 'TBD'},
-          'Infernal Tiefling': {'Uncommon': 'TBD'},
-          'Half-Orc': {'Uncommon': 'TBD'},
-          'Half-Elf': {'Rare': 'TBD'},
-          'Dragonborn': {'Rare': 'TBD'}
+          'Default': [{'Freq': ''}, {'Desc': ''}],
+          'Nokoyan Human': [{'Freq': 'Common'}, {'Desc': 'These humans have fair skin and a variety of hair colors.  Their ancestors came from across the eastern sea'}],
+          'Sarruthan Human': [{'Freq': 'Uncommon'}, {'Desc': 'These humans have medium to dark skin tones and usually straight dark hair. Their ancestors came from southern parts of the contenent.'}],
+          'High Elf': [{'Freq': 'Uncommon'}, {'Desc': 'TBD'}],
+          'Wood Elf': [{'Freq': 'Rare'}, {'Desc': 'TBD'}],
+          'Drow Elf': [{'Freq': 'Very Rare'}, {'Desc': 'TBD'}],
+          'Hill Dwarf': [{'Freq': 'Common'}, {'Desc': 'TBD'}],
+          'Mountain Dwarf': [{'Freq': 'Rare'}, {'Desc': 'TBD'}],
+          'Rock Gnome': [{'Freq': 'Common'}, {'Desc': 'TBD'}],
+          'Forest Gnome': [{'Freq': 'Very Rare'}, {'Desc': 'TBD'}],
+          'Lightfoot Halfling': [{'Freq': 'Uncommon'}, {'Desc': 'TBD'}],
+          'Stout Halfling': [{'Freq': 'Rare'}, {'Desc': 'TBD'}],
+          'Abyssal Tiefling': [{'Freq': 'Uncommon'}, {'Desc': 'TBD'}],
+          'Infernal Tiefling': [{'Freq': 'Uncommon'}, {'Desc': 'TBD'}],
+          'Half-Orc': [{'Freq': 'Uncommon'}, {'Desc': 'TBD'}],
+          'Half-Elf': [{'Freq': 'Rare'}, {'Desc': 'TBD'}],
+          'Dragonborn': [{'Freq': 'Rare'}, {'Desc': 'TBD'}]
         },
-        test: this.getRace
+        selected: ''
       }
     },
     methods: {
-      selectedDescription (race) {
-        console.log('> ', race)
-        return this.descriptions
-      }
-      // ,
-      // selectedRace (race) {
-      // //  this.race = race
-      //   console.log('>> ', race)
-      // }
     },
-    props: ['selectedRace'],
     computed: {
-      getRace () {
-        return {
-          test: this.selectedRace
-        }
+      selectedRace () {
+        console.log('test', this.$store.state.selectedRace)
+        this.selected = this.$store.state.selectedRace
+        return this.$store.state.selectedRace
       }
     }
   }
