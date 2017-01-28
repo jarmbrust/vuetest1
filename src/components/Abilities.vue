@@ -97,8 +97,6 @@
       },
       selectedRace (race, bonus) {
         this.race = race
-        console.log(race)
-  //      this.$store.state.selectedRace = race
         for (var stat in this.raceBonus) {
           this.raceBonus[stat] = bonus[stat]
         }
