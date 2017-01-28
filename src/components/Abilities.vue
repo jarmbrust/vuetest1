@@ -7,13 +7,18 @@
               <tr>
                 <th>Ability</th>
                 <th>Total</th>
+                <th>Bonus</th>
                 <th>Score</th>
                 <th>Race<br>Bonus</th>
               </tr>
            </thead>
            <tbody>
              <tr v-for="(ability, index) in abilities">
-               <td class="stat-name">{{ index }}: </td> <td class="total-score">{{ Number(ability) + Number(raceBonus[index]) }}</td> <td class="score">{{ ability }}</td> <td class="race-bonus">{{ raceBonus[index] }}</td> <td v-if="adjustAbility">
+               <td class="stat-name">{{ index }}: </td>
+               <td class="total-score">{{ Number(ability) + Number(raceBonus[index]) }}</td>
+               <td class="stat-bonus">{{ Math.floor(((Number(ability) + Number(raceBonus[index])) - 10)/2) }}</td>
+               <td class="score">{{ ability }}</td> <td class="race-bonus">{{ raceBonus[index] }}</td>
+               <td v-if="adjustAbility">
                  <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">Adjust <span class="caret"></span></button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -135,8 +140,14 @@
     .total-score,
     .total-points  {
       font-weight: bold;
-      font-size: 20px;
+      font-size: 22px;
       padding: 10px;
+      color: #EEE;
+    }
+    .stat-bonus {
+      font-weight: bold;
+      font-size: 18px;
+      padding: 12px;
       color: #EEE;
     }
     .stat-name {
@@ -149,6 +160,7 @@
     .race-bonus,
     .table th {
       color: #EEE;
+      padding-top: 14px;
     }
     .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
       background-color: #333;
