@@ -18,7 +18,7 @@
       return {
         descriptions: {
           'Default': {'Freq': '', 'Desc': ''},
-          'Nokoyan Human': {'Freq': 'Common', 'Desc': 'These humans have fair skin and a variety of hair colors.  Their ancestors came from across the eastern sea as refugees around 300 years ago, and found the kingdom of Oulan.'},
+          'Nokoyan Human': {'Freq': 'Common', 'Desc': 'These humans have fair skin and a variety of hair colors.  Their ancestors came from across the eastern sea around 300 years ago fleeing the Nokoyan Empire, and found the kingdom of Oulan.'},
           'Sarruthan Human': {'Freq': 'Uncommon', 'Desc': 'These humans have medium to dark skin tones and usually straight dark hair. Their ancestors came from southern parts of the contenent and once had a great emipre before it fell to ruins when the misma came.'},
           'High Elf': {'Freq': 'Uncommon', 'Desc': 'Fair skin and light hair colors, and violet to green eyes, these elves are slim and slightly taller than humans. Sophisticated and elegent, they have a reputation for being somewhat aloof.  Their culture generally holds arcane knowledge to be the pinical of study.'},
           'Wood Elf': {'Freq': 'Rare', 'Desc': 'Averaging just over 5\' tall with lean builds, these elves are rare to find in human cities, or any cities. The have tan skin tones and dark or forest colored hair. Most wood elves avoid arcane magics, perferring drudic ways.'},
